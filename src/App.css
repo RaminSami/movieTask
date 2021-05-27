@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+.likebtn:focus{
+  background-color: #4CAF50 ; /* Green */
+}
+.dislikebtn:focus{
+  background-color: #ff0000; /* Red */
+}
