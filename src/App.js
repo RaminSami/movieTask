@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+import BtnFunc from "./BtnFunc";
 
 const api_key = "d0f5f2e135336200362af8a1a73acb17";
 const BASE_URL = "https://api.themoviedb.org/3";
-const getImage = (path) => `https://image.tmdb.org/t/p/w200/${path}`;
 
 function App() {
   const [data, setData] = useState([]);
@@ -17,26 +17,17 @@ function App() {
     });
   }, []);
   
-  const clickHandle = ()=>{
-    console.log('liked');
-  }
 
-  const clickHandleDislike = ()=>{
-    console.log('disliked');
-  }
 
   return (
     <div className="App">
       <header className="App-header">
         <div className="grid">
           {data.map((movie) => (
-            <div className="item">
-              <img src={getImage(movie.poster_path)} />
-              <p>{movie.original_title}</p>
-              <p><button class="likebtn" onClick={clickHandle}>Like</button>
-              <button class="dislikebtn"onClick={clickHandleDislike}>Dislike</button></p>
-            
-            </div>
+             <BtnFunc
+             originalTitle={movie.original_title}
+             posterPath={movie.poster_path}
+           />
           ))}
         </div>
       </header>
